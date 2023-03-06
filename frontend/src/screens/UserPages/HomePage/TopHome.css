@@ -1,0 +1,24 @@
+.mainTop{
+    align-items: center;
+    display: flex;
+    min-height: 83vh;
+    background-image: url('https://i.ibb.co/Zg5wpzD/1.png');
+    background-size: cover;
+    background-color: #57aade;
+    color: #ffffff;
+    opacity: 0.8;
+    background-position: center;
+}
+.mainTopHead{
+    font-size: 60px;
+    text-align: center;
+}
+.mainTopIntro{
+    font-size: 20px;
+    text-align: center;
+}
+.mainTopPhara{
+    padding-top: 20px;
+    text-align: center;
+    line-height: 0.3em;
+}
