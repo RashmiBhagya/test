@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer'
 import HomePage from './screens/UserPages/HomePage/HomePage'
 import UserLogin from './screens/UserLogin/UserLogin';
 import RegisterUser from './screens/RegisterUsers/RegisterUser';
+import SellerAdd from './screens/SellerPages/SellerAdd';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
      <Route path='/' element={<HomePage />}/>
      <Route path='/userlogin' element={<UserLogin />}/>
      <Route path='/userregister' element={<RegisterUser />}/>
+       <Route path='/sellerAdd' element={<SellerAdd />}/>
       {/* <Route path='/' element={<HomePage />}/>
       <Route path='/sellerCategoryAdd' element={<Seller_CategoryAdd />}/>
       <Route path='/sellerCategoryAll' element={<Seller_CategoryAll />}/>
