@@ -70,17 +70,17 @@ export function authHeader() {
 	}
 }
 
-// export const adminLogout = () => async (dispatch) => {
+export const userLogout = () => async (dispatch) => {
 	
-// 	localStorage.removeItem("adminInfo");
-// 	localStorage.removeItem("userInfo");
-// 	localStorage.removeItem("sellerInfo");
-// 	setTimeout(function () {
-// 		window.location.href = "/";
-// 	}, 2000);
-// 	dispatch({ type: ADMIN_LOGOUT });
+	localStorage.removeItem("adminInfo");
+	localStorage.removeItem("customerInfo");
+	localStorage.removeItem("sellerInfo");
+	setTimeout(function () {
+		window.location.href = "/";
+	}, 2000);
+	dispatch({ type: USER_LOGOUT });
 	
-// };
+};
 
 
 export const register = (name, email, password, pic) => async (dispatch) => {

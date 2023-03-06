@@ -6,21 +6,21 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'; 
 import { Link } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { adminLogout } from '../../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogout } from '../../actions/UserActions'
 import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const admin_Login= useSelector((state)=> state.admin_Login);
+  const user_Login= useSelector((state)=> state.user_Login);
 
-  // const { adminInfo } = admin_Login;
+  const { userInfo } = user_Login;
 
-  // const logoutHandler=()=>{
-  //   dispatch(adminLogout());
-  // }
+  const logoutHandler=()=>{
+    dispatch(userLogout());
+  }
  
   return (
     <div>
@@ -53,7 +53,7 @@ const Header = () => {
               {/* <Badge>{cart.length}</Badge> */}
           <NavDropdown title="navodapiumi691@gmail.com" id="navbarScrollingDropdown">
              
-              <NavDropdown.Item  >
+              <NavDropdown.Item  onClick={logoutHandler}>
                 Logout
               </NavDropdown.Item>
               <NavDropdown.Divider />
