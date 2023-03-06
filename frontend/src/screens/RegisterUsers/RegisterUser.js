@@ -6,7 +6,7 @@ import ErrorMessages from '../../components/Errormeesages/ErrorMessages';
 import LoadingPages from '../../components/LoadingPages/LoadingPages';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-// import { register } from '../../actions/userActions';
+import { register } from '../../actions/UserActions';
 
 const RegisterUser = ({history}) => {
 
@@ -22,9 +22,9 @@ const RegisterUser = ({history}) => {
 //  const [loading,setLoading] = useState(false)  
 //  const [error,setError] = useState(false) 
 
-// const dispatch = useDispatch();
-//  const adminRegistar= useSelector((state)=> state.adminRegistar);
-//  const { loading,error,userInfo}= adminRegistar;
+const dispatch = useDispatch();
+ const user_Registar= useSelector((state)=> state.user_Registar);
+ const { loading,error,userInfo}= user_Registar;
 
 
  //back to mynotepage
@@ -35,15 +35,15 @@ const RegisterUser = ({history}) => {
 //  }, [history,userInfo])
  
 
-//  const registerHandler= async (e)=>{
-//    e.preventDefault();
+ const registerHandler= async (e)=>{
+   e.preventDefault();
     
-//    if(password !== confirmpassword){
-//     setMessage('Password do not match')
-//    }else{
-//     dispatch(register(name,email,password,pic))
-//    }
-//  }
+   if(password !== confirmpassword){
+    setMessage('Password do not match')
+   }else{
+    dispatch(register(name,email,password,pic))
+   }
+ }
 
 
 
@@ -79,8 +79,11 @@ const RegisterUser = ({history}) => {
     <MainScreen>
     <hr />
  
-
- <Form >
+  {error && <ErrorMessages variant='danger'>{error}</ErrorMessages>}
+  {message && <ErrorMessages variant='danger'>{message}</ErrorMessages>}
+  {loading && <LoadingPages />}
+  
+ <Form onSubmit={registerHandler}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Name</Form.Label>
     <Form.Control type="text" placeholder="Enter name" 

@@ -39,14 +39,14 @@ export const userLogin = (email, password) => async (dispatch) => {
 				window.location.href = "/";
 			}, 2000);
 			localStorage.setItem("adminInfo", JSON.stringify(data));
-		}else if(data.type=='user'){
+		}else if(data.type=='customer'){
 			setTimeout(function () {
 				window.location.href = "/";
 			}, 2000);
-			localStorage.setItem("userInfo", JSON.stringify(data));
+			localStorage.setItem("customer Info", JSON.stringify(data));
 		}else if(data.type=='seller'){
 			setTimeout(function () {
-				window.location.href = "/";
+				window.location.href = "/sellerAdd";
 			}, 2000);
 			localStorage.setItem("sellerInfo", JSON.stringify(data));
 		}
@@ -83,45 +83,45 @@ export function authHeader() {
 // };
 
 
-// export const register = (name, email, password, pic) => async (dispatch) => {
-// 	try {
-// 	  dispatch({ type: ADMIN_REGISTER_REQUEST });
+export const register = (name, email, password, pic) => async (dispatch) => {
+	try {
+	  dispatch({ type: USER_REGISTER_REQUEST });
   
-// 	  const config = {
-// 		headers: {
-// 		  "Content-type": "application/json",
-// 		},
-// 	  };
+	  const config = {
+		headers: {
+		  "Content-type": "application/json",
+		},
+	  };
   
-// 	  const { data } = await axios.post(
-// 		"/api/users",
-// 		{ name, pic, email, password },
-// 		config
-// 	  );
+	  const { data } = await axios.post(
+		"/api/seller/sellerregister",
+		{ name, pic, email, password },
+		config
+	  );
   
-// 	  dispatch({ type: ADMIN_REGISTER_SUCCESS, payload: data });
-// 	  swal({
-// 		title: "Success !!!",
-// 		text: "Registration is Successful.",
-// 		icon: "success",
-// 		timer: 2000,
-// 		button: false,
-// 	});
-// 	setTimeout(function () {
-// 		window.location.href = "/sellerCategoryAll";
-// 	}, 2000);
+	  dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+	  swal({
+		title: "Success !!!",
+		text: "Registration is Successful.",
+		icon: "success",
+		timer: 2000,
+		button: false,
+	});
+	setTimeout(function () {
+		window.location.href = "/sellerAdd";
+	}, 2000);
   
-// 	  dispatch({ type: ADMIN_LOGIN_SUCCESS, payload: data });
+	  dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
      
-// 	  localStorage.setItem("adminInfo", JSON.stringify(data));
-// 	} catch (error) {
-// 	  dispatch({
-// 		type: ADMIN_REGISTER_FAIL,
-// 		payload:
-// 		  error.response && error.response.data.message
-// 			? error.response.data.message
-// 			: error.message,
-// 	  });
-// 	}
-//   };
+	  localStorage.setItem("userInfo", JSON.stringify(data));
+	} catch (error) {
+	  dispatch({
+		type: USER_REGISTER_FAIL,
+		payload:
+		  error.response && error.response.data.message
+			? error.response.data.message
+			: error.message,
+	  });
+	}
+  };
   
