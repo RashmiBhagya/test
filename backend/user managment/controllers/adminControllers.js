@@ -1,6 +1,6 @@
 const Admin = require('../models/adminModel');
 const Seller = require('../models/sellerModel')
-const User = require('../models/userModel');
+const Customer = require('../models/customerModel');
 const asyncHandler = require('express-async-handler');
 const genarateToken = require('../utils/genarteToken');
 
@@ -49,7 +49,7 @@ const authAdmin = asyncHandler(async (req,res) =>{
     let type;
 
     const admin = await Admin.findOne({email});
-    const user = await User.findOne({email});
+    const customer = await Customer.findOne({email});
     const seller = await Seller.findOne({email});
 
     //match the registered password and the entered passsword
@@ -64,15 +64,15 @@ const authAdmin = asyncHandler(async (req,res) =>{
             token: genarateToken(admin._id),
             type: type,
         })
-    }else if(user && (await user.matchPassword(password))){
-        type = "user";
+    }else if(customer && (await customer.matchPassword(password))){
+        type = "customer";
         res.json({
-            _id:user._id,
-            name:user.name,
-            email:user.email,
-            isUser: user.isUser,
-            pic:user.pic,
-            token: genarateToken(user._id),
+            _id:customer._id,
+            name:customer.name,
+            email:customer.email,
+            isUser:customer.isUser,
+            pic:customer.pic,
+            token: genarateToken(customer._id),
             type: type,
         })
     }else if(seller && (await seller.matchPassword(password)) ){
