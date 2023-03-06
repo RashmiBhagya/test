@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import HomePage from './screens/UserPages/HomePage/HomePage'
+import UserLogin from './screens/UserLogin/UserLogin';
+import RegisterUser from './screens/RegisterUsers/RegisterUser';
+
 
 function App() {
   return (
@@ -11,7 +14,8 @@ function App() {
           <Header />
                   <Routes>
      <Route path='/' element={<HomePage />}/>
-
+     <Route path='/userlogin' element={<UserLogin />}/>
+     <Route path='/userregister' element={<RegisterUser />}/>
       {/* <Route path='/' element={<HomePage />}/>
       <Route path='/sellerCategoryAdd' element={<Seller_CategoryAdd />}/>
       <Route path='/sellerCategoryAll' element={<Seller_CategoryAll />}/>
