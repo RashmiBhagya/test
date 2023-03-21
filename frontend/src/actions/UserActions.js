@@ -46,7 +46,7 @@ export const userLogin = (email, password) => async (dispatch) => {
 			localStorage.setItem("customer Info", JSON.stringify(data));
 		}else if(data.type=='seller'){
 			setTimeout(function () {
-				window.location.href = "/sellerAdd";
+				window.location.href = "/sellerDashboard";
 			}, 2000);
 			localStorage.setItem("sellerInfo", JSON.stringify(data));
 		}

@@ -1,0 +1,17 @@
+{
+  "name": "paymentservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Rashmi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^7.0.2",
+    "nodemon": "^2.0.21",
+    "rxpress": "^0.3.0"
+  }
+}

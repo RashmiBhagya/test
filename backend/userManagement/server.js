@@ -18,11 +18,19 @@ app.get('/',(req,res)=>{
     res.send('API is running');
 })
 
+// app.get('/:id',(req, res)=>{
+//     Id
+
+//    const seller = sellerController.findbyID(id);
+
+//    res.send(seller)
+// })
+
 app.get('/api/category',(req,res)=>{
     res.json(category)
 })
 
-// create routes here
+//create routes here
 app.use('/api/customer',customerRouter);
 app.use('/api/seller',sellerRouter);
 app.use('/api/admin',adminRouter);
